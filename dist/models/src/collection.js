@@ -3,11 +3,14 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Collection = undefined;
 
-var _kinveyJavascriptSdkCore = require('kinvey-javascript-sdk-core');
+var _query = require('kinvey-node-sdk/dist/query');
+
+var _datastore = require('kinvey-node-sdk/dist/datastore');
 
 var _model = require('./model');
+
+var _model2 = _interopRequireDefault(_model);
 
 var _utils = require('./utils');
 
@@ -23,18 +26,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Extend Backbone.Collection
 var Collection = _backbone2.default.Collection.extend({
-  dataStoreType: _kinveyJavascriptSdkCore.DataStoreType.Sync,
+  dataStoreType: _datastore.DataStoreType.Cache,
   query: undefined,
-  model: _model.Model,
+  model: _model2.default,
 
   initialize: function initialize(models) {
-    var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
     // Call parent
-    var result = _backbone2.default.Collection.prototype.initialize.apply(this, arguments);
+    var result = _backbone2.default.Collection.prototype.initialize.apply(this, [models, options]);
 
     // Validate arguments
-    if (options.query && !(options.query instanceof _kinveyJavascriptSdkCore.Query)) {
+    if (options.query && !(options.query instanceof _query.Query)) {
       throw new Error('options.query argument must be of type: Kinvey.Query.');
     }
 
@@ -47,7 +50,7 @@ var Collection = _backbone2.default.Collection.extend({
   clear: function clear() {
     var _this = this;
 
-    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
     // Override the success callback
     var success = options.success;
@@ -82,4 +85,4 @@ var Collection = _backbone2.default.Collection.extend({
 Collection.extend = _backbone2.default.Collection.extend;
 
 // Export
-exports.Collection = Collection;
+exports.default = Collection;

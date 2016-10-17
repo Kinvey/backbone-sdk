@@ -3,63 +3,33 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.User = exports.sync = exports.Model = exports.Files = exports.Collection = undefined;
 
 var _collection = require('./src/collection');
 
-Object.keys(_collection).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _collection[key];
-    }
-  });
-});
+var _collection2 = _interopRequireDefault(_collection);
 
 var _files = require('./src/files');
 
-Object.keys(_files).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _files[key];
-    }
-  });
-});
+var _files2 = _interopRequireDefault(_files);
 
 var _model = require('./src/model');
 
-Object.keys(_model).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _model[key];
-    }
-  });
-});
+var _model2 = _interopRequireDefault(_model);
 
 var _sync = require('./src/sync');
 
-Object.keys(_sync).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _sync[key];
-    }
-  });
-});
+var _sync2 = _interopRequireDefault(_sync);
 
 var _user = require('./src/user');
 
-Object.keys(_user).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _user[key];
-    }
-  });
-});
+var _user2 = _interopRequireDefault(_user);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// Export
+exports.Collection = _collection2.default;
+exports.Files = _files2.default;
+exports.Model = _model2.default;
+exports.sync = _sync2.default;
+exports.User = _user2.default;

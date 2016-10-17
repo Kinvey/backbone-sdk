@@ -3,7 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Model = undefined;
 
 var _backbone = require('backbone');
 
@@ -19,4 +18,4 @@ var Model = _backbone2.default.Model.extend({
 Model.extend = _backbone2.default.Model.extend;
 
 // Export
-exports.Model = Model;
+exports.default = Model;

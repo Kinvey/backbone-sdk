@@ -3,9 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
 exports.wrapCallbacks = wrapCallbacks;
 exports.defaultOptions = defaultOptions;
 
@@ -29,7 +26,7 @@ var nextTick = void 0;
 if ((0, _isFunction2.default)(global.setImmediate)) {
   // IE10, Node.js 0.9+.
   nextTick = root.setImmediate;
-} else if ((typeof process === 'undefined' ? 'undefined' : _typeof(process)) !== undefined && process.nextTick) {
+} else if (typeof process !== 'undefined' && process.nextTick) {
   // Node.js <0.9.
   nextTick = process.nextTick;
 } else {
@@ -43,7 +40,7 @@ if ((0, _isFunction2.default)(global.setImmediate)) {
 // rejects. The `success` and `error` properties are extracted from `options`
 // at run-time, allowing intermediate process to alter the callbacks.
 function wrapCallbacks(promise) {
-  var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
   promise.then(function (value) {
     if (options.success) {
@@ -69,8 +66,8 @@ function wrapCallbacks(promise) {
 // Helper function to wrap the optional callbacks with a default success and
 // error callback.
 function defaultOptions(model) {
-  var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-  var mutate = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var mutate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
   options = (0, _extend2.default)({ parse: true }, options);
 

@@ -3,9 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.sync = sync;
+exports.default = sync;
 
-var _kinveyJavascriptSdkCore = require('kinvey-javascript-sdk-core');
+var _datastore = require('kinvey-node-sdk/dist/datastore');
 
 var _es6Promise = require('es6-promise');
 
@@ -39,7 +39,7 @@ function sync(method, model, options) {
   var segments = url.split('/');
   var collection = segments[0];
   var id = segments[1] || data._id || undefined;
-  var namespace = _kinveyJavascriptSdkCore.DataStore.collection(collection, model.dataStoreType);
+  var namespace = _datastore.DataStore.collection(collection, model.dataStoreType);
 
   // Translate Backbone methods to Kinvey methods
   var methodMap = {

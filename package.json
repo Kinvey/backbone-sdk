@@ -1,6 +1,6 @@
 {
   "name": "kinvey-backbone-sdk",
-  "version": "3.0.3",
+  "version": "3.2.1",
   "description": "Kinvey JavaScript SDK for Backbone.",
   "homepage": "http://www.kinvey.com",
   "bugs": {

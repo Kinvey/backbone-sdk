@@ -3,11 +3,14 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Files = undefined;
 
 var _collection = require('./collection');
 
-var Files = _collection.Collection.extend({});
+var _collection2 = _interopRequireDefault(_collection);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Files = _collection2.default.extend({});
 
 // Export
-exports.Files = Files;
+exports.default = Files;
