@@ -1,6 +1,6 @@
-import { Collection } from './collection';
+import Collection from './collection';
 
 const Files = Collection.extend({});
 
 // Export
-export { Files };
+export default Files;

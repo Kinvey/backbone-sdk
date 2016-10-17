@@ -5,6 +5,7 @@
     className: 'book',
 
     serialize: function() {
+      console.log(this.model);
       return { book: _.clone(this.model.attributes) };
     }
   });

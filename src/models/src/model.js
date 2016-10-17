@@ -8,4 +8,4 @@ const Model = Backbone.Model.extend({
 Model.extend = Backbone.Model.extend;
 
 // Export
-export { Model };
+export default Model;

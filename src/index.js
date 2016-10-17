@@ -1,9 +1,4 @@
-import { Kinvey } from './kinvey';
-import { sync } from './models';
-import Backbone from 'backbone';
+import Kinvey from './kinvey';
 
-// Override Backbone.sync
-Backbone.sync = sync;
-
-// Export
-module.exports = Kinvey;
+// Export default
+export default Kinvey;

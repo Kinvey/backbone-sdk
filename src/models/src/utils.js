@@ -7,7 +7,7 @@ import isFunction from 'lodash/isFunction';
 let nextTick;
 if (isFunction(global.setImmediate)) { // IE10, Node.js 0.9+.
   nextTick = root.setImmediate;
-} else if (typeof process !== undefined && process.nextTick) { // Node.js <0.9.
+} else if (typeof process !== 'undefined' && process.nextTick) { // Node.js <0.9.
   nextTick = process.nextTick;
 } else { // Most browsers.
   nextTick = function(fn) {
@@ -19,15 +19,15 @@ if (isFunction(global.setImmediate)) { // IE10, Node.js 0.9+.
 // rejects. The `success` and `error` properties are extracted from `options`
 // at run-time, allowing intermediate process to alter the callbacks.
 export function wrapCallbacks(promise, options = {}) {
-  promise.then(value => {
+  promise.then((value) => {
     if (options.success) { // Invoke the success handler.
       options.success(value);
     }
-  }).catch(reason => {
+  }).catch((reason) => {
     if (options.error) { // Invoke the error handler.
       options.error(reason);
     }
-  }).then(null, err => {
+  }).then(null, (err) => {
     // If an exception occurs, the promise would normally catch it. Since we
     // are using asynchronous callbacks, exceptions should be thrown all the
     // way.

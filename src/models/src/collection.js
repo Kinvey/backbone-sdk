@@ -1,18 +1,19 @@
-import { DataStoreType, Query } from 'kinvey-javascript-sdk-core';
-import { Model } from './model';
+import { Query } from 'kinvey-node-sdk/dist/query';
+import { DataStoreType } from 'kinvey-node-sdk/dist/datastore';
+import Model from './model';
 import { defaultOptions } from './utils';
 import Backbone from 'backbone';
 import isFunction from 'lodash/isFunction';
 
 // Extend Backbone.Collection
 const Collection = Backbone.Collection.extend({
-  dataStoreType: DataStoreType.Sync,
+  dataStoreType: DataStoreType.Cache,
   query: undefined,
   model: Model,
 
   initialize(models, options = {}) {
     // Call parent
-    const result = Backbone.Collection.prototype.initialize.apply(this, arguments);
+    const result = Backbone.Collection.prototype.initialize.apply(this, [models, options]);
 
     // Validate arguments
     if (options.query && !(options.query instanceof Query)) {
@@ -29,7 +30,7 @@ const Collection = Backbone.Collection.extend({
   clear(options = {}) {
     // Override the success callback
     const success = options.success;
-    options.success = response => {
+    options.success = (response) => {
       this.reset([], options);
       if (isFunction(success)) success.call(options.context, this, response, options);
       this.trigger('sync', this, response, options);
@@ -59,4 +60,4 @@ const Collection = Backbone.Collection.extend({
 Collection.extend = Backbone.Collection.extend;
 
 // Export
-export { Collection };
+export default Collection;

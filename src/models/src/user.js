@@ -1,5 +1,5 @@
-import { User as KinveyUser } from 'kinvey-javascript-sdk-core';
-import { Model } from './model';
+import { User as KinveyUser } from 'kinvey-node-sdk/dist/entity';
+import Model from './model';
 import { defaultOptions, wrapCallbacks } from './utils';
 import result from 'lodash/result';
 import has from 'lodash/has';
@@ -168,4 +168,4 @@ const User = Model.extend({
 });
 
 // Export
-export { User };
+export default User;
