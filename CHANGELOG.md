@@ -1,4 +1,10 @@
 ## Changelog
+## [v3.2.2](https://github.com/Kinvey/backbone-sdk/tree/v3.2.2) (2016-10-26)
+
+**Updates:**
+
+- Updated `kinvey-node-sdk` and `kinvey-phonegap-sdk` to latest versions.
+
 ### 3.0.3 (2016-08-11)
 * Enhancement: Update `kinvey-javascript-sdk-core` dependency to v3.0.3.
 * BugFix (MLIBZ-1274): Resolve the promise used for opening a transaction for a WebSQL database when no queries are provided.
