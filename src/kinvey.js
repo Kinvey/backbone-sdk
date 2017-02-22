@@ -1,24 +1,17 @@
-import PhoneGapKinvey from 'kinvey-phonegap-sdk';
-import { Collection, Model, Files, User } from './models';
-import Device from './device';
-import assign from 'lodash/assign';
+import Kinvey from 'kinvey-phonegap-sdk';
+import Backbone from 'backbone';
+import { Collection, Model, Files, User, sync } from './models';
 
-export class Kinvey extends PhoneGapKinvey {
-  static init(options = {}) {
-    options = assign({
-      deviceClass: Device
-    }, options);
-
-    // Initialize Kinvey
-    return super.init(options);
-  }
-}
+// Override Backbone.sync
+Backbone.sync = sync;
 
 // Add modules to Kinvey namespace
-Kinvey.Collection = Collection;
-Kinvey.Model = Model;
-Kinvey.Files = Files;
-Kinvey.User = User;
+Kinvey.Backbone = {
+  Collection: Collection,
+  Model: Model,
+  Files: Files,
+  User: User
+};
 
 // Export
 export default Kinvey;

@@ -1,8 +1,7 @@
-import { DataStore } from 'kinvey-node-sdk/dist/datastore';
-import { Promise } from 'es6-promise';
-import { wrapCallbacks } from './utils';
+import { DataStore } from 'kinvey-node-sdk';
 import result from 'lodash/result';
 import isFunction from 'lodash/isFunction';
+import { wrapCallbacks } from './utils';
 
 export default function sync(method, model, options) {
   const query = model.query;

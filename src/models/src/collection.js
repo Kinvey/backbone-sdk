@@ -1,9 +1,8 @@
-import { Query } from 'kinvey-node-sdk/dist/query';
-import { DataStoreType } from 'kinvey-node-sdk/dist/datastore';
-import Model from './model';
-import { defaultOptions } from './utils';
+import { Query, DataStoreType } from 'kinvey-node-sdk';
 import Backbone from 'backbone';
 import isFunction from 'lodash/isFunction';
+import Model from './model';
+import { defaultOptions } from './utils';
 
 // Extend Backbone.Collection
 const Collection = Backbone.Collection.extend({

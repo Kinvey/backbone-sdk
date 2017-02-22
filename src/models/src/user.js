@@ -1,9 +1,8 @@
-import { User as KinveyUser } from 'kinvey-node-sdk/dist/entity';
-import Model from './model';
-import { defaultOptions, wrapCallbacks } from './utils';
+import { User as CoreUser } from 'kinvey-node-sdk';
 import result from 'lodash/result';
 import has from 'lodash/has';
-const kmdAttribute = process.env.KINVEY_KMD_ATTRIBUTE || '_kmd';
+import Model from './model';
+import { defaultOptions, wrapCallbacks } from './utils';
 
 const User = Model.extend({
   set(key, val, options) {
@@ -21,10 +20,10 @@ const User = Model.extend({
     }
 
     // Handle Kinvey.Metadata
-    if (has(attrs, 'metadata') || has(attrs, kmdAttribute)) {
-      let metadata = attrs.metadata || attrs[kmdAttribute];
+    if (has(attrs, 'metadata') || has(attrs, '_kmd')) {
+      let metadata = attrs.metadata || attrs._kmd;
       metadata = result(metadata, 'toPlainObject', metadata);
-      attrs[kmdAttribute] = metadata;
+      attrs._kmd = metadata;
     }
 
     // Call super
@@ -32,120 +31,120 @@ const User = Model.extend({
   },
 
   isActive() {
-    const kinveyUser = new KinveyUser(this.attributes);
+    const kinveyUser = new CoreUser(this.attributes);
     return kinveyUser.isActive();
   },
 
   isEmailVerified() {
-    const kinveyUser = new KinveyUser(this.attributes);
+    const kinveyUser = new CoreUser(this.attributes);
     return kinveyUser.isEmailVerified();
   },
 
   login(username, password, options) {
     options = defaultOptions(this, options, true);
-    const promise = KinveyUser.login(username, password, options).then(user => user.data);
+    const promise = CoreUser.login(username, password, options).then(user => user.data);
     return wrapCallbacks(promise, options);
   },
 
   loginWithMIC(redirectUri, authorizationGrant, options) {
     options = defaultOptions(this, options, true);
-    const promise = KinveyUser.loginWithMIC(redirectUri, authorizationGrant, options).then(user => user.data);
+    const promise = CoreUser.loginWithMIC(redirectUri, authorizationGrant, options).then(user => user.data);
     return wrapCallbacks(promise, options);
   },
 
   connectIdentity(identity, session, options) {
     options = defaultOptions(this, options, true);
-    const promise = KinveyUser.connectIdentity(identity, session, options).then(user => user.data);
+    const promise = CoreUser.connectIdentity(identity, session, options).then(user => user.data);
     return wrapCallbacks(promise, options);
   },
 
   connectFacebook(clientId, options) {
     options = defaultOptions(this, options, true);
-    const promise = KinveyUser.connectFacebook(clientId, options).then(user => user.data);
+    const promise = CoreUser.connectFacebook(clientId, options).then(user => user.data);
     return wrapCallbacks(promise, options);
   },
 
   disconnectFacebook(options) {
-    const kinveyUser = new KinveyUser(this.attributes, options);
+    const kinveyUser = new CoreUser(this.attributes, options);
     options = defaultOptions(this, options, false);
     return wrapCallbacks(kinveyUser.disconnectFacebook(options), options);
   },
 
   connectGoogle(clientId, options) {
     options = defaultOptions(this, options, true);
-    const promise = KinveyUser.connectGoogle(clientId, options).then(user => user.data);
+    const promise = CoreUser.connectGoogle(clientId, options).then(user => user.data);
     return wrapCallbacks(promise, options);
   },
 
   disconnectGoogle(options) {
-    const kinveyUser = new KinveyUser(this.attributes, options);
+    const kinveyUser = new CoreUser(this.attributes, options);
     options = defaultOptions(this, options, false);
     return wrapCallbacks(kinveyUser.disconnectFacebook(options), options);
   },
 
   connectLinkedIn(clientId, options) {
     options = defaultOptions(this, options, true);
-    const promise = KinveyUser.connectLinkedIn(clientId, options).then(user => user.data);
+    const promise = CoreUser.connectLinkedIn(clientId, options).then(user => user.data);
     return wrapCallbacks(promise, options);
   },
 
   disconnectLinkedIn(options) {
-    const kinveyUser = new KinveyUser(this.attributes, options);
+    const kinveyUser = new CoreUser(this.attributes, options);
     options = defaultOptions(this, options, false);
     return wrapCallbacks(kinveyUser.disconnectLinkedIn(options), options);
   },
 
   disconnectIdentity(identity, options) {
-    const kinveyUser = new KinveyUser(this.attributes, options);
+    const kinveyUser = new CoreUser(this.attributes, options);
     options = defaultOptions(this, options, false);
     return wrapCallbacks(kinveyUser.disconnectIdentity(options), options);
   },
 
   logout(options) {
     options = defaultOptions(this, options, false);
-    return wrapCallbacks(KinveyUser.logout(options), options);
+    return wrapCallbacks(CoreUser.logout(options), options);
   },
 
   signup(data, options) {
     options = defaultOptions(this, options, true);
-    const promise = KinveyUser.signup(data, options).then(user => user.data);
+    const promise = CoreUser.signup(data, options).then(user => user.data);
     return wrapCallbacks(promise, options);
   },
 
   signupWithIdentity(identity, session, options) {
     options = defaultOptions(this, options, true);
-    const promise = KinveyUser.signupWithIdentity(identity, session, options).then(user => user.data);
+    const promise = CoreUser.signupWithIdentity(identity, session, options).then(user => user.data);
     return wrapCallbacks(promise, options);
   },
 
   update(data, options) {
-    const kinveyUser = new KinveyUser(this.attributes, options);
+    const kinveyUser = new CoreUser(this.attributes, options);
     options = defaultOptions(this, options, true);
     const promise = kinveyUser.update(data, options).then(user => user.data);
     return wrapCallbacks(promise, options);
   },
 
   me(options) {
-    const kinveyUser = new KinveyUser(this.attributes, options);
+    const kinveyUser = new CoreUser(this.attributes, options);
     options = defaultOptions(this, options, true);
     const promise = kinveyUser.me(options).then(user => user.data);
     return wrapCallbacks(promise, options);
   },
 
   verifyEmail(options) {
-    const kinveyUser = new KinveyUser(this.attributes, options);
+    const kinveyUser = new CoreUser(this.attributes, options);
     options = defaultOptions(this, options, false);
     return wrapCallbacks(kinveyUser.verifyEmail(options), options);
   },
 
   forgotUsername(options) {
-    const kinveyUser = new KinveyUser(this.attributes, options);
+    const kinveyUser = new CoreUser(this.attributes, options);
     options = defaultOptions(this, options, false);
     return wrapCallbacks(kinveyUser.forgotUsername(options), options);
   }
 }, {
   getActiveUser(client) {
-    const activeUser = KinveyUser.getActiveUser(client);
+    const activeUser = CoreUser.getActiveUser(client);
 
     if (activeUser) {
       return new User(activeUser.data);
@@ -155,15 +154,15 @@ const User = Model.extend({
   },
 
   resetPassword(username, options) {
-    return wrapCallbacks(KinveyUser.resetPassword(username, options), options);
+    return wrapCallbacks(CoreUser.resetPassword(username, options), options);
   },
 
   exists(username, options) {
-    return wrapCallbacks(KinveyUser.exists(username, options), options);
+    return wrapCallbacks(CoreUser.exists(username, options), options);
   },
 
   restore(id, options) {
-    return wrapCallbacks(KinveyUser.restore(id, options), options);
+    return wrapCallbacks(CoreUser.restore(id, options), options);
   }
 });
 
