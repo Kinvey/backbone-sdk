@@ -2,7 +2,7 @@
 
 [Kinvey](http://www.kinvey.com) (pronounced Kin-vey, like convey) makes it ridiculously easy for developers to setup, use and operate a cloud backend for their mobile apps. They don't have to worry about connecting to various cloud services, setting up servers for their backend, or maintaining and scaling them.
 
-This npm module makes it very easy to connect your BackboneJS app with Kinvey.
+This npm package makes it very easy to connect your BackboneJS app with Kinvey.
 
 ## How to use
 
@@ -10,7 +10,7 @@ This npm module makes it very easy to connect your BackboneJS app with Kinvey.
 To use the SDK, sign up for Kinvey if you have not already done so. Go to the [sign up](https://console.kinvey.com/#signup) page, and follow the steps provided.
 
 ### 2. Install the SDK
-You can install the module using npm:
+You can install the package using npm:
 
 ```bash
 npm install kinvey-backbone-sdk --save

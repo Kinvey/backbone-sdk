@@ -1,4 +1,4 @@
-import { User as CoreUser } from 'kinvey-node-sdk';
+import { User as CoreUser } from 'kinvey-js-sdk/dist/export';
 import result from 'lodash/result';
 import has from 'lodash/has';
 import Model from './model';

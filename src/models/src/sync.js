@@ -1,4 +1,4 @@
-import { DataStore } from 'kinvey-node-sdk';
+import { DataStore } from 'kinvey-js-sdk/dist/export';
 import result from 'lodash/result';
 import isFunction from 'lodash/isFunction';
 import { wrapCallbacks } from './utils';

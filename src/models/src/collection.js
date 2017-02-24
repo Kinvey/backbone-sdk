@@ -1,4 +1,4 @@
-import { Query, DataStoreType } from 'kinvey-node-sdk';
+import { Query, DataStoreType } from 'kinvey-js-sdk/dist/export';
 import Backbone from 'backbone';
 import isFunction from 'lodash/isFunction';
 import Model from './model';
