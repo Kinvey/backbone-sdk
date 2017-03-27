@@ -163,6 +163,10 @@ const User = Model.extend({
 
   restore(id, options) {
     return wrapCallbacks(CoreUser.restore(id, options), options);
+  },
+
+  remove(id, options) {
+    return wrapCallbacks(CoreUser.remove(id, options), options);
   }
 });
 

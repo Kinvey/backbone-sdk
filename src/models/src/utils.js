@@ -6,7 +6,7 @@ import isFunction from 'lodash/isFunction';
 // event loop. Borrowed from [q](http://documentup.com/kriskowal/q/).
 let nextTick;
 if (isFunction(global.setImmediate)) { // IE10, Node.js 0.9+.
-  nextTick = root.setImmediate;
+  nextTick = global.setImmediate;
 } else if (typeof process !== 'undefined' && process.nextTick) { // Node.js <0.9.
   nextTick = process.nextTick;
 } else { // Most browsers.

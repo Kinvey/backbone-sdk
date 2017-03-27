@@ -55,8 +55,5 @@ const Collection = Backbone.Collection.extend({
   }
 });
 
-// Add Backbone extend
-Collection.extend = Backbone.Collection.extend;
-
 // Export
 export default Collection;
