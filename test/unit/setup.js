@@ -1,6 +1,6 @@
 // import { HttpMiddleware as CoreHttpMiddleware, KinveyRackManager } from 'kinvey-javascript-sdk-core/dist/rack';
 // import { HttpMiddleware } from '../../src/http';
-import { Kinvey } from '../../src/kinvey';
+import { Kinvey } from '../../src/index';
 // import { User } from './helpers';
 import nock from 'nock';
 
