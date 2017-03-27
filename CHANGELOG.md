@@ -1,4 +1,9 @@
 ## Changelog
+## [v3.4.2](https://github.com/Kinvey/backbone-sdk/tree/v3.4.2) (2017-03-16)
+
+**Changes:**
+- Updated package dependencies.
+
 ## [v3.2.2](https://github.com/Kinvey/backbone-sdk/tree/v3.2.2) (2016-10-26)
 
 **Updates:**
