@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+- '6'
+before_deploy: npm run build
+deploy:
+  provider: npm
+  email: thomas.conner@me.com
+  api_key:
+    secure: FcTqBfim2Jlf6odIFk0fafttzyUTihHaYSd7x3ktskmI/N7RF2WqynF58pWXW2zCXX0eM6DEoYmHBYM/rHVFreS2tswB4LIgCbSCDDpMwyjUBLP7PGvdyHtlf8d2kiVgEcB/WHYuo0pQfmWRDtHGiuPQCwd9BFN5g1lTN0hAfkJT6IQbgNqipYx8iiL/mk9GtO8bO5qMHzmuY/UJrv/uC6XWnjQ8QMqjAblP/hxQTyBqTMlNeDMMVPJkZaouLTA3tyKNhQUnnP6nkfHJRVCRCDxPhyxbuZHwpQe6y9iiJ+Gea4P7nvqi4zk2kEStmjQF0oRxB6dfqj2Mj36bhhJzmlXqMn82o7m8WeJ7K8YT4Bu3KciJffP4eKTnOrYzLVy5p3hKWXR6QofAz5vo6N4gdhXuoG/XokPEbHDaKl7zQkUfqYG/c+mUQB7MgUh3rZZqvRdfyRn5hal/ldM2EHORzy6LP8tgXxA2yelWSlMLqh5/4ppHLrMRNAVDZTh9RSN+0Uga0hOEiCv+2VNoZkb7Nqm18N2uRO90J2hco175QMFZo3PnF7PfYfK+A7v/gqCA0sU1TpN+2OM/3ojoTNA/FoKnwAz2vF6zbACtmSexIPxVscWqzVGXqEyMagYYwAQbsjSPNUvodlTlj+xrLonUIUy1vQ07hLk83RZCy3SWOj4=
+  on:
+    tags: true
+    repo: Kinvey/backbone-sdk
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+  slack:
+    on_success: always
+    on_failure: always
+    secure: 2A0OxslScHDRT6UIAuDZtWlXTdVLGPhmQmydNxHHmDqGtAh5i9408tfrltaEjwWVp7g91XQ770+b0bPMd9BKVqI4D7wVPOShvhTLInsib8rGNj4rsWqWZws1uio9c7aXHDsqIFK/Fje4I3gK4ZbLWZ4+7tDAB/Qt1HBAg+IGpQoNstGyHcWmP085Hjzp1XaI16L0aRLt3ddSiIANJZw3uy/QsSj9NPQTkeQG4LHf16eOEz/UPKrSDbCOM9lhavJE+xg61+ePfPVm7Bj3IBP+hNl/XzHnxTlRcNqebbYX+dYY3m2eV0PFZD3zpe/RCtEuUvMZnSuftI79xnfixgg/SIDnMdXICwHFnf8XJ1oRM2fts7y8YgVrXzggn4POyTCgD9kZcvCLCnjWcQZM57uoq1L4SzwHV5MnRZfKRU86QX4Rzo7VDrxrKlBSMip66nQG5BtMeiAMCsYVWpe1dbo3ak6vJ8XjT5ejuWu7k1W/GNrhfWc+KgymsK7IDqLKkPCjTHfFFLvQbu/7/FDm11orpu5GDKI10kI5fJHuE/PvwnMqRjMop/HFqLqoWdgPrWtt4G7jlDHFjSyuOqd4Rnru/mHQMwiRmMpN52F2pJr4p1SiKNHzIgal/5Yk0I4kgEhGtU5bEedyQ6vkITrle4wiTrcDX/vAu3JAOEG2z2XFx+E=
