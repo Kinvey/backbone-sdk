@@ -1,4 +1,28 @@
-## Changelog
+# Change Log
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
+and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## [3.5.1](https://github.com/Kinvey/backbone-sdk/tree/v3.5.1) (2017-06-30)
+[Full Changelog](https://github.com/Kinvey/backbone-sdk/compare/v3.5.0...v3.5.1)<br/>
+
+### Added
+_None_
+
+### Removed
+_None_
+
+### Changed
+- Update [kinvey-js-sdk](https://www.npmjs.com/package/kinvey-js-sdk) dependency to [3.5.1](https://github.com/Kinvey/js-sdk/tree/v3.5.1).
+- Update [kinvey-phonegap-sdk](https://www.npmjs.com/package/kinvey-phonegap-sdk) dependency to [3.5.1](https://github.com/Kinvey/phonegap-sdk/tree/v3.5.1).
+
+### Merged Pull Requests
+_None_
+
+### Closed Issues
+_None_
+
 ## [v3.4.5](https://github.com/Kinvey/backbone-sdk/tree/v3.4.5) (2017-04-13)
 [Full Changelog](https://github.com/Kinvey/backbone-sdk/compare/v3.4.4...v3.4.5)<br/>
 
